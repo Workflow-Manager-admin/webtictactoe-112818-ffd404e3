@@ -1,0 +1,108 @@
+:root {
+  --ttt-primary: #4CAF50;
+  --ttt-secondary: #FFC107;
+  --ttt-accent: #2196F3;
+  --ttt-bg: #fafbfc;
+  --ttt-shadow: 0 2px 16px 0 rgba(0,0,0,0.06), 0px 0px 0px 1px rgba(0,0,0,0.01);
+}
+
+.tic-tac-toe-container {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--ttt-bg);
+  box-shadow: var(--ttt-shadow);
+  margin: 64px auto 0 auto;
+  border-radius: 16px;
+  padding: 32px 16px 24px 16px;
+  max-width: 360px;
+  width: 95vw;
+}
+
+.ttt-title {
+  margin: 0 0 24px 0;
+  font-size: 2rem;
+  color: var(--ttt-primary);
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 64px);
+  grid-template-rows: repeat(3, 64px);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.ttt-square {
+  background: white;
+  border: 2px solid var(--ttt-primary);
+  box-shadow: 0 1px 6px 0 rgba(33,150,243,0.07);
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--ttt-accent);
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.16s, box-shadow 0.16s;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: border-color, box-shadow;
+}
+.ttt-square:focus, .ttt-square:hover {
+  border-color: var(--ttt-accent);
+  box-shadow: 0 2px 10px 0 rgba(33,150,243,0.14);
+  z-index: 1;
+}
+
+.ttt-status {
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ttt-secondary);
+  min-height: 28px;
+  text-align: center;
+}
+
+.ttt-reset-btn {
+  background: var(--ttt-accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 1px 6px 0 rgba(33,150,243,0.07);
+  transition: background 0.18s;
+}
+
+.ttt-reset-btn:hover, .ttt-reset-btn:focus {
+  background: var(--ttt-primary);
+  color: #fafbfc;
+}
+
+/* Responsive board for small screens */
+@media (max-width: 500px) {
+  .ttt-board {
+    grid-template-columns: repeat(3, 18vw);
+    grid-template-rows: repeat(3, 18vw);
+    gap: 3vw;
+  }
+  .ttt-square {
+    width: 18vw;
+    height: 18vw;
+    font-size: 1.5rem;
+  }
+  .tic-tac-toe-container {
+    padding: 8vw 2vw;
+    max-width: unset;
+  }
+}
