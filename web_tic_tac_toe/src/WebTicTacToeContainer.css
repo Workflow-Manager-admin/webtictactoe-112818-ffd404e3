@@ -1,9 +1,20 @@
+/* === RETRO THEME for TicTacToe, 80s/arcade style === */
+
+/* Import 'Press Start 2P', a pixel/arcade font via Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 :root {
-  --ttt-primary: #4CAF50;
-  --ttt-secondary: #FFC107;
-  --ttt-accent: #2196F3;
-  --ttt-bg: #fafbfc;
-  --ttt-shadow: 0 2px 16px 0 rgba(0,0,0,0.06), 0px 0px 0px 1px rgba(0,0,0,0.01);
+  --retro-bg-gradient: linear-gradient(135deg, #1400c8 0%, #e4007a 100%);
+  --retro-panel: #000928;
+  --retro-primary: #39ffc3;
+  --retro-secondary: #ffd700;
+  --retro-accent: #fa1c1c;
+  --retro-white: #fff2bc;
+  --retro-pixel-shadow: 0 0 0 3px #000, 0 4px 14px 0 #39ffc3b0;
+  --retro-pixel-shadow2: 0 0 0 3px #000, 0 2px 10px 0 #e4007abb;
+  --retro-btn-shadow: 0 2px 0 #1400c8, 0 4px #fa1c1c inset;
+  --retro-border-px: 6px;
+  --retro-font: 'Press Start 2P', 'Courier New', monospace;
 }
 
 .tic-tac-toe-container {
@@ -13,96 +24,167 @@
   align-items: center;
   justify-content: center;
 
-  background: var(--ttt-bg);
-  box-shadow: var(--ttt-shadow);
-  margin: 64px auto 0 auto;
-  border-radius: 16px;
   padding: 32px 16px 24px 16px;
-  max-width: 360px;
-  width: 95vw;
+  margin: 64px auto 0 auto;
+  max-width: 400px;
+  width: 96vw;
+
+  background: var(--retro-panel);
+  border-radius: 18px;
+  box-shadow: 0 2px 28px 0 #000928cc, var(--retro-pixel-shadow2), 0 0 72px #e4007a60;
+  border: var(--retro-border-px) double var(--retro-primary);
+  position: relative;
+  z-index: 1;
 }
 
 .ttt-title {
   margin: 0 0 24px 0;
-  font-size: 2rem;
-  color: var(--ttt-primary);
-  letter-spacing: 2px;
-  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--retro-secondary);
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-shadow: 0 2px 0 #222, 0 4px 12px #fa1c1c;
+  background: linear-gradient(90deg, var(--retro-secondary), var(--retro-primary), var(--retro-accent), var(--retro-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .ttt-board {
   display: grid;
-  grid-template-columns: repeat(3, 64px);
-  grid-template-rows: repeat(3, 64px);
-  gap: 10px;
+  grid-template-columns: repeat(3, 74px);
+  grid-template-rows: repeat(3, 74px);
+  gap: 12px;
   margin-bottom: 24px;
 }
 
 .ttt-square {
-  background: white;
-  border: 2px solid var(--ttt-primary);
-  box-shadow: 0 1px 6px 0 rgba(33,150,243,0.07);
-  font-size: 2.1rem;
-  font-weight: 600;
-  color: var(--ttt-accent);
-  width: 64px;
-  height: 64px;
-  border-radius: 8px;
+  background: var(--retro-bg-gradient);
+  border: var(--retro-border-px) outset var(--retro-primary);
+  box-shadow: var(--retro-pixel-shadow);
+  font-size: 2.15rem;
+  font-weight: bold;
+  color: var(--retro-white);
+  width: 74px;
+  height: 74px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: border-color 0.16s, box-shadow 0.16s;
   outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  will-change: border-color, box-shadow;
+  transition: border-color 0.12s, box-shadow 0.12s, background 0.18s;
+  will-change: border-color, box-shadow, background;
+  text-shadow: 0 2px #222, 0 4px 18px var(--retro-secondary);
+  position: relative;
 }
 .ttt-square:focus, .ttt-square:hover {
-  border-color: var(--ttt-accent);
-  box-shadow: 0 2px 10px 0 rgba(33,150,243,0.14);
-  z-index: 1;
+  border-color: var(--retro-accent);
+  box-shadow: 0 0 0 4px #fff2bc, 0 0 18px 0 var(--retro-secondary), var(--retro-pixel-shadow2);
+  background: linear-gradient(135deg, #2222ee 10%, #fa1c1c 90%);
+  z-index: 2;
 }
 
 .ttt-status {
-  margin-bottom: 16px;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--ttt-secondary);
-  min-height: 28px;
+  margin-bottom: 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--retro-secondary);
+  min-height: 30px;
   text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 0 2px #1400c8, 0 4px 14px #fa1c1c;
+  padding: 4px 0 4px 0;
 }
 
 .ttt-reset-btn {
-  background: var(--ttt-accent);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 8px 20px;
-  font-size: 1rem;
-  font-weight: 500;
+  background: var(--retro-accent);
+  color: var(--retro-white);
+  border: var(--retro-border-px) inset var(--retro-primary);
+  border-radius: 10px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 1px 6px 0 rgba(33,150,243,0.07);
-  transition: background 0.18s;
+  margin-top: 10px;
+  box-shadow: var(--retro-btn-shadow), 0 2px 15px #000928c7;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: background 0.15s, color 0.15s, border-color 0.12s;
+  position: relative;
+}
+.ttt-reset-btn:hover, .ttt-reset-btn:focus {
+  background: var(--retro-primary);
+  color: #fa1c1c;
+  border-color: var(--retro-secondary);
+  box-shadow: 0 0 0 3px var(--retro-secondary), 0 2px 25px #ffd70099;
 }
 
-.ttt-reset-btn:hover, .ttt-reset-btn:focus {
-  background: var(--ttt-primary);
-  color: #fafbfc;
+/* Pixel/arcade theme classes */
+.retro-pixel {
+  font-family: var(--retro-font);
+  font-size: 1em;
+  letter-spacing: 1.8px;
+  user-select: none;
+}
+
+.retro-gradient-text {
+  background: linear-gradient(90deg, #ffc800 10%, #39ffc3 70%, #e4007a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.retro-border {
+  border: var(--retro-border-px) double var(--retro-primary) !important;
+  box-shadow: 0 0 0 2px var(--retro-accent), 0 0 40px 0 #e4007a44, var(--retro-pixel-shadow2);
+  position: relative;
+  overflow: visible;
+}
+
+/* Decorative flourish: bottom */
+.retro-flourish {
+  margin-top: 32px;
+  width: 90%;
+  height: 10px;
+  border-bottom: var(--retro-border-px) dashed var(--retro-secondary);
+  border-radius: 1px;
+  box-shadow: 0 2px 16px var(--retro-accent), 0 0 0 3px var(--retro-primary);
+  position: absolute;
+  left: 5%;
+  bottom: 8px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.82;
 }
 
 /* Responsive board for small screens */
 @media (max-width: 500px) {
   .ttt-board {
-    grid-template-columns: repeat(3, 18vw);
-    grid-template-rows: repeat(3, 18vw);
+    grid-template-columns: repeat(3, 20vw);
+    grid-template-rows: repeat(3, 20vw);
     gap: 3vw;
   }
   .ttt-square {
-    width: 18vw;
-    height: 18vw;
-    font-size: 1.5rem;
+    width: 20vw;
+    height: 20vw;
+    font-size: 1.4rem;
   }
   .tic-tac-toe-container {
-    padding: 8vw 2vw;
+    padding: 6vw 1vw;
     max-width: unset;
   }
+  .retro-flourish {
+    bottom: 2vw;
+  }
+}
+
+/* Ensure layout stays centered and fully responsive */
+.tic-tac-toe-container,
+.ttt-board,
+.ttt-square,
+.ttt-status,
+.ttt-title,
+.ttt-reset-btn {
+  box-sizing: border-box;
 }
